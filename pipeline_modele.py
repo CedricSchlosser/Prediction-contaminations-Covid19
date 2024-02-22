@@ -362,7 +362,7 @@ y_test = y_test.drop("index", axis = 1)
 plt.plot(y_XGB_pred, label = "Prédictions XGB", color = "b")
 plt.plot(y_test, label = "Test", color = "red")
 plt.legend()
-plt.title("XGB VS Test avec samedi et dimanche")
+plt.title("XGB VS Test avec samedi et dimanche", color="#0077BE")
 # Constat : notre Modèle capte complètement la tendance. 
 # Remarque : On voit sur les données de test des gros pics négatifs : ce sont les dimanche & les samedi. Des jours ou aucunes données ne sont enregistrées
 # On choisit de les supprimer
@@ -384,6 +384,8 @@ plt.title("XGB VS Test sans les dimanche et samedi")
 plt.legend()
 # Remarques :
 # Il reste encore des valeurs "abérantes" correspondant probablement aux jours fériés 
+legend = plt.legend()
+plt.setp(legend.get_texts(), color="#0077BE")
 # Alternative proposée 1 : Re-entrainer le modèle sans samedi/dimanche/jours fériés
 # Alternative proposée 2 : Re-entrainer le modèle en "flaguant" comme confinement/hiver les jours où l'on ne se teste pas
 
